@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:se492_flutter_auth/screen/home.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:se492_flutter_auth/screen/sing_in.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -15,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Authentication'),
+      home: const SignInPage(),
     );
   }
 }
